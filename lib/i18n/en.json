@@ -1,0 +1,45 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "locale": {
+    "en": "EN",
+    "ar": "عربي",
+    "switchLabel": "Switch language to Arabic"
+  },
+  "hero": {
+    "ctaWork": "View Our Work",
+    "ctaContact": "Get in Touch"
+  },
+  "services": {
+    "caseStudy": "Case Study ↓"
+  },
+  "projects": {
+    "viewDetails": "View Details"
+  },
+  "contact": {
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message",
+    "whatsapp": "WhatsApp",
+    "emailLabel": "Email",
+    "formNote": "Opens your email client — no backend required.",
+    "formSubject": "New inquiry from BahiTech Solutions website"
+  },
+  "nfc": {
+    "tapLabel": "Tap",
+    "reviewLabel": "Review"
+  },
+  "footer": {
+    "copyright": "© {year} BahiTech Solutions. All rights reserved."
+  },
+  "a11y": {
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "mainNav": "Main navigation"
+  }
+}

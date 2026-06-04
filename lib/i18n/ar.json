@@ -1,0 +1,45 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "services": "الخدمات",
+    "projects": "الأعمال",
+    "contact": "تواصل"
+  },
+  "locale": {
+    "en": "EN",
+    "ar": "عربي",
+    "switchLabel": "Switch language to English"
+  },
+  "hero": {
+    "ctaWork": "اطلع على أعمالنا",
+    "ctaContact": "تواصل معنا"
+  },
+  "services": {
+    "caseStudy": "دراسة الحالة ↓"
+  },
+  "projects": {
+    "viewDetails": "عرض التفاصيل"
+  },
+  "contact": {
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "message": "الرسالة",
+    "send": "إرسال الرسالة",
+    "whatsapp": "واتساب",
+    "emailLabel": "البريد",
+    "formNote": "يفتح بريدك الإلكتروني — لا حاجة لخادم.",
+    "formSubject": "استفسار جديد من موقع باهي تك للحلول"
+  },
+  "nfc": {
+    "tapLabel": "قرّب",
+    "reviewLabel": "قيّم"
+  },
+  "footer": {
+    "copyright": "© {year} باهي تك للحلول. جميع الحقوق محفوظة."
+  },
+  "a11y": {
+    "openMenu": "فتح القائمة",
+    "closeMenu": "إغلاق القائمة",
+    "mainNav": "القائمة الرئيسية"
+  }
+}

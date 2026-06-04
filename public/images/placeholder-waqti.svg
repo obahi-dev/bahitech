@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#111118"/>
+      <stop offset="100%" style="stop-color:#16161F"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect x="40" y="40" width="1120" height="595" rx="12" fill="none" stroke="#0066FF" stroke-width="2" stroke-dasharray="12 8" opacity="0.5"/>
+  <text x="600" y="300" text-anchor="middle" fill="#0066FF" font-family="system-ui,sans-serif" font-size="28" font-weight="600">REPLACE: Waqti screenshot</text>
+  <text x="600" y="350" text-anchor="middle" fill="#666" font-family="system-ui,sans-serif" font-size="18">Drop waqti.png in /public/images/</text>
+  <text x="600" y="400" text-anchor="middle" fill="#444" font-family="system-ui,sans-serif" font-size="16">Update image path in content.ts</text>
+</svg>
