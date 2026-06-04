@@ -1,3 +1,6 @@
+# nested duplicate scaffold (use project root, not /bahitech)
+/bahitech/
+
 # dependencies
 /node_modules
 /.pnp
