@@ -18,7 +18,9 @@
     "caseStudy": "دراسة الحالة ↓"
   },
   "projects": {
-    "viewDetails": "عرض التفاصيل"
+    "viewDetails": "عرض التفاصيل",
+    "hideDetails": "إخفاء التفاصيل",
+    "visitProject": "زيارة المشروع"
   },
   "contact": {
     "name": "الاسم",

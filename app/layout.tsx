@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import "@/styles/globals.css";
 
 export const metadata: Metadata = {
-  title: "BahiTech — Smart Tech Solutions",
+  title: "BahiTech Solutions | Smart Tech for Saudi Businesses",
   description:
-    "Smart tech solutions for modern businesses in Saudi Arabia. Custom apps, websites, and NFC review tags.",
+    "Custom apps, booking platforms, business websites, and NFC review tools built for Saudi businesses.",
+  icons: { icon: "/favicon.svg" },
 };
 
 /** Pass-through — html/body with locale + dir live in app/[locale]/layout.tsx */

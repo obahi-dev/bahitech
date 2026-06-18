@@ -7,6 +7,20 @@ import { NFCSpotlight } from "@/components/NFCSpotlight";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 
+function AmbientDivider() {
+  return (
+    <div
+      style={{
+        height: "1px",
+        background:
+          "linear-gradient(to right, transparent, rgba(200,169,110,0.2), transparent)",
+        margin: "0 auto",
+        width: "80%",
+      }}
+    />
+  );
+}
+
 export default function HomePage({
   params: { locale },
 }: {
@@ -17,11 +31,17 @@ export default function HomePage({
   return (
     <main className="bg-primary">
       <Hero />
+      <AmbientDivider />
       <About />
+      <AmbientDivider />
       <Services />
+      <AmbientDivider />
       <Projects />
+      <AmbientDivider />
       <NFCSpotlight />
+      <AmbientDivider />
       <Contact />
+      <AmbientDivider />
       <Footer />
     </main>
   );

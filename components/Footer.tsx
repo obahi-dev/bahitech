@@ -3,6 +3,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import { Instagram, Linkedin, Twitter } from "lucide-react";
 import { company, t, type Locale } from "@/data/content";
+import { LogoMark } from "@/components/Logo";
 
 const socialIcons: Record<string, typeof Instagram> = {
   instagram: Instagram,
@@ -29,10 +30,16 @@ export function Footer() {
     <footer className="border-t border-sand/10 py-12">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
         <div>
-          <p className="font-display text-lg text-sand">
-            {t(company.name, locale)}
-          </p>
-          <p className="mt-2 text-sm text-muted">{copyright}</p>
+          <a href="#hero" className="group inline-flex items-center gap-3">
+            <LogoMark className="h-8 w-8 shrink-0 transition-transform duration-300 group-hover:scale-105" />
+            <div>
+              <p className="font-display text-lg font-semibold leading-tight text-text-primary">
+                Bahi<span className="text-sand">Tech</span>
+              </p>
+              <p className="text-[10px] uppercase tracking-[0.28em] text-muted">Solutions</p>
+            </div>
+          </a>
+          <p className="mt-4 text-sm text-muted">{copyright}</p>
         </div>
 
         <div className="flex flex-wrap items-center gap-6">

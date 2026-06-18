@@ -12,6 +12,7 @@ export type BadgeStyle = "amber" | "sand" | "sand-dimmed";
 export interface Company {
   name: LocalizedString;
   domain: string;
+  edgeLabel: LocalizedString;
   tagline: LocalizedString;
   heroLine1: LocalizedString;
   heroLine2: LocalizedString;
@@ -36,19 +37,22 @@ export interface Stat {
 
 export interface Service {
   id: string;
-  icon: "smartphone" | "globe" | "nfc";
+  icon: "smartphone" | "globe" | "nfc" | "booking";
   title: LocalizedString;
   description: LocalizedString;
   badge: LocalizedString;
   badgeStyle: BadgeStyle;
+  badgeColor?: BadgeStyle;
   caseStudyLink?: boolean;
   placeholderNote?: LocalizedString;
+  availabilityNote?: LocalizedString;
 }
 
 export interface Project {
   id: string;
   title: LocalizedString;
   description: LocalizedString;
+  details?: LocalizedStringArray;
   tags: LocalizedStringArray;
   /** Path under /public — update when photo is ready */
   image: string;
@@ -68,6 +72,7 @@ export interface SectionTitles {
   about: LocalizedString;
   services: LocalizedString;
   servicesSubtitle: LocalizedString;
+  servicesMark: LocalizedString;
   projects: LocalizedString;
   projectsSubtitle: LocalizedString;
   contact: LocalizedString;
@@ -77,6 +82,7 @@ export interface SectionTitles {
 export const company: Company = {
   name: { en: "BahiTech Solutions", ar: "باهي تك للحلول" },
   domain: "BahiTech.sa",
+  edgeLabel: { en: "BAHITECH.SA", ar: "BAHITECH.SA" },
   tagline: {
     en: "Smart tech solutions for modern Saudi businesses.",
     ar: "حلول تقنية ذكية للأعمال السعودية الحديثة.",
@@ -156,6 +162,7 @@ export const services: Service[] = [
     },
     badge: { en: "Live Product", ar: "منتج حي" },
     badgeStyle: "amber",
+    badgeColor: "amber",
     caseStudyLink: true,
   },
   {
@@ -189,6 +196,26 @@ export const services: Service[] = [
     },
     badge: { en: "Physical Product", ar: "منتج مادي" },
     badgeStyle: "sand",
+    badgeColor: "sand",
+  },
+  {
+    id: "booking",
+    icon: "booking",
+    title: {
+      en: "Booking & Scheduling App",
+      ar: "تطبيق الحجوزات والمواعيد",
+    },
+    description: {
+      en: "A full booking platform for Saudi service businesses — salons, spas, massage centers, nail studios, and more. Clients browse services, pick a time, and book instantly. Similar to Booksy, built for the Saudi market.",
+      ar: "منصة حجوزات متكاملة لقطاع الخدمات السعودي — الصالونات والسبا ومراكز المساج واستديوهات الأظافر وغيرها. يتصفح العميل الخدمات ويختار الوقت ويحجز فوراً. مشابهة لـ Booksy ومصممة للسوق السعودي.",
+    },
+    badge: { en: "Live Product", ar: "منتج حي" },
+    badgeStyle: "amber",
+    badgeColor: "amber",
+    availabilityNote: {
+      en: "Available for businesses in Saudi Arabia",
+      ar: "متاح للأعمال داخل المملكة العربية السعودية",
+    },
   },
 ];
 
@@ -207,10 +234,24 @@ export const projects: Project[] = [
       en: ["React Native", "Real-time", "Mobile App", "SaaS"],
       ar: ["React Native", "فوري", "تطبيق جوال", "SaaS"],
     },
-    image: "/images/waqti-screenshot.jpg",
+    image: "/images/project-waqti-screenshot.jpg",
     imageFilename: "project-waqti-screenshot.jpg",
-    usePlaceholder: true,
-    link: "",
+    usePlaceholder: false,
+    link: "https://waqti-client.web.app/",
+    details: {
+      en: [
+        "Real-time queue board for walk-in customers",
+        "Appointment booking with live status updates",
+        "Staff dashboard to manage clients and wait times",
+        "Built with React Native for iOS and Android",
+      ],
+      ar: [
+        "لوحة طابور فورية للعملاء بدون موعد",
+        "حجز مواعيد مع تحديثات حالة مباشرة",
+        "لوحة تحكم للموظفين لإدارة العملاء وأوقات الانتظار",
+        "مبني بـ React Native لنظامي iOS و Android",
+      ],
+    },
   },
   {
     id: "website-soon",
@@ -229,6 +270,20 @@ export const projects: Project[] = [
     image: "/images/client-website.jpg",
     imageFilename: "project-client-website.jpg",
     usePlaceholder: true,
+    details: {
+      en: [
+        "Bilingual EN/AR business website",
+        "Mobile-first responsive design",
+        "SEO-ready structure and fast performance",
+        "Full case study publishing soon",
+      ],
+      ar: [
+        "موقع أعمال ثنائي اللغة عربي/إنجليزي",
+        "تصميم متجاوب يبدأ من الجوال",
+        "بنية جاهزة لمحركات البحث وأداء سريع",
+        "دراسة الحالة الكاملة قريباً",
+      ],
+    },
   },
   {
     id: "next-project",
@@ -247,6 +302,18 @@ export const projects: Project[] = [
     image: "/images/next-project.jpg",
     imageFilename: "project-your-next.jpg",
     usePlaceholder: true,
+    details: {
+      en: [
+        "Add a title, description, tags, and image path",
+        "Set usePlaceholder to false when your screenshot is ready",
+        "Optional link opens in a new tab from the expanded panel",
+      ],
+      ar: [
+        "أضف العنوان والوصف والوسوم ومسار الصورة",
+        "عيّن usePlaceholder إلى false عند جاهزية لقطة الشاشة",
+        "رابط اختياري يفتح في تبويب جديد من اللوحة الموسّعة",
+      ],
+    },
   },
 ];
 
@@ -272,6 +339,7 @@ export const sections: SectionTitles = {
     en: "End-to-end digital solutions for Saudi businesses",
     ar: "حلول رقمية متكاملة للأعمال السعودية",
   },
+  servicesMark: { en: "•", ar: "•" },
   projects: { en: "Our Work", ar: "أعمالنا" },
   projectsSubtitle: {
     en: "Selected projects — add more in content.ts",

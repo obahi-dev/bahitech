@@ -51,6 +51,7 @@ export function ImagePlaceholder({
         src={src}
         alt={alt}
         fill
+        unoptimized
         className="object-cover"
         sizes="(max-width: 768px) 100vw, 33vw"
         onError={() => setLoadError(true)}

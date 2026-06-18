@@ -18,7 +18,9 @@
     "caseStudy": "Case Study ↓"
   },
   "projects": {
-    "viewDetails": "View Details"
+    "viewDetails": "View Details",
+    "hideDetails": "Hide Details",
+    "visitProject": "Visit Live Project"
   },
   "contact": {
     "name": "Name",

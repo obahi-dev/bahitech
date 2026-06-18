@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 import { Menu, X } from "lucide-react";
-import { company, t, type Locale } from "@/data/content";
+import { type Locale } from "@/data/content";
 import { Link, usePathname } from "@/lib/i18n/routing";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { LogoMark } from "@/components/Logo";
 
 const navKeys = [
   { key: "home", href: "#hero" },
@@ -14,6 +15,8 @@ const navKeys = [
   { key: "projects", href: "#projects" },
   { key: "contact", href: "#contact" },
 ] as const;
+
+const SCROLL_THRESHOLD = 120;
 
 export function Navbar() {
   const locale = useLocale() as Locale;
@@ -28,8 +31,9 @@ export function Navbar() {
   const otherLocale = locale === "en" ? "ar" : "en";
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    window.addEventListener("scroll", onScroll);
+    const onScroll = () => setScrolled(window.scrollY > SCROLL_THRESHOLD);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -42,19 +46,32 @@ export function Navbar() {
 
   return (
     <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500 ${
         scrolled
-          ? "border-b border-accent-sand/10 bg-bg-surface/85 backdrop-blur-xl"
-          : "bg-transparent"
-      )}
+          ? "border-b border-[rgba(200,169,110,0.08)] bg-primary/95 backdrop-blur-md"
+          : "border-b border-transparent bg-transparent"
+      }`}
     >
       <nav
-        className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8"
+        className="mx-auto flex h-[68px] max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8"
         aria-label={tA11y("mainNav")}
       >
-        <a href="#hero" className="font-display text-xl font-semibold text-sand">
-          {t(company.name, locale)}
+        <a
+          href="#hero"
+          className="flex h-10 w-10 shrink-0 items-center justify-center md:h-auto md:w-[52px]"
+          aria-label="BahiTech Solutions"
+        >
+          <motion.div
+            initial={false}
+            animate={{
+              opacity: scrolled ? 1 : 0,
+              scale: scrolled ? 1 : 0.85,
+            }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            className={scrolled ? "" : "pointer-events-none"}
+          >
+            <LogoMark className="h-9 w-9 md:h-10 md:w-10" />
+          </motion.div>
         </a>
 
         <ul className="hidden items-center gap-8 md:flex">
@@ -103,7 +120,7 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <div className="fixed inset-0 top-16 z-40 bg-primary/98 backdrop-blur-lg md:hidden">
+        <div className="fixed inset-0 top-[68px] z-40 bg-primary backdrop-blur-lg md:hidden">
           <ul className="flex flex-col gap-2 px-6 py-8">
             {navKeys.map(({ key, href }) => (
               <li key={key}>

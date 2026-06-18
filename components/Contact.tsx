@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
-import { Mail, MessageCircle } from "lucide-react";
+import { Mail } from "lucide-react";
 import {
   company,
   sections,
@@ -35,8 +35,7 @@ export function Contact() {
 
   return (
     <>
-      <div className="section-divider" />
-      <section id="contact" className="py-24">
+      <section id="contact" className="py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <FadeIn className="mb-12 text-center">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">
@@ -128,7 +127,6 @@ export function Contact() {
           </div>
         </div>
       </section>
-      <div className="mx-auto mb-0 h-px max-w-6xl bg-amber/20" />
     </>
   );
 }

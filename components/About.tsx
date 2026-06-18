@@ -11,8 +11,7 @@ export function About() {
 
   return (
     <>
-      <div className="section-divider" />
-      <section id="about" className="py-24">
+      <section id="about" className="py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <h2 className="font-display mb-12 text-3xl font-bold sm:text-4xl">
@@ -25,10 +24,10 @@ export function About() {
               <Badge variant="sand" className="mb-4">
                 {t(company.locationBadge, locale)}
               </Badge>
-              <p className="mb-4 leading-relaxed text-muted">
+              <p className="mb-4 text-[18px] leading-[1.8] text-muted">
                 {t(company.aboutParagraph, locale)}
               </p>
-              <p className="leading-relaxed">
+              <p className="text-[18px] leading-[1.8]">
                 <span className="highlight-amber font-medium">
                   {t(company.aboutHighlight, locale)}
                 </span>
@@ -42,6 +41,7 @@ export function About() {
                 alt={t(company.name, locale)}
                 usePlaceholder={true}
                 className="rounded-xl"
+                aspectClass="min-h-[380px]"
               />
             </FadeIn>
           </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
-import { Globe, Nfc, Smartphone } from "lucide-react";
+import { CalendarCheck, Globe, Nfc, Smartphone } from "lucide-react";
 import {
   services,
   sections,
@@ -19,6 +19,7 @@ const icons = {
   smartphone: Smartphone,
   globe: Globe,
   nfc: Nfc,
+  booking: CalendarCheck,
 };
 
 function badgeVariant(style: BadgeStyle): "amber" | "sand" | "sand-dimmed" {
@@ -63,21 +64,22 @@ function NfcCardAnimation() {
 function ServiceCard({ service, locale }: { service: Service; locale: Locale }) {
   const tSvc = useTranslations("services");
   const Icon = icons[service.icon];
+  const badgeTone = service.badgeColor ?? service.badgeStyle;
 
   return (
-    <Card className="flex h-full flex-col transition-all hover:border-sand/30 hover:shadow-amber-glow">
-      <CardHeader>
+    <Card className="flex h-full flex-col border-l border-l-transparent transition-all duration-200 hover:-translate-y-0.5 hover:border-l-4 hover:border-l-amber hover:shadow-amber-glow">
+      <CardHeader className="p-8">
         <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-sand/10 text-sand">
           <Icon className="h-6 w-6" />
         </span>
         <div className="mb-2 flex flex-wrap gap-2">
-          <Badge variant={badgeVariant(service.badgeStyle)}>
+          <Badge variant={badgeVariant(badgeTone)}>
             {t(service.badge, locale)}
           </Badge>
         </div>
         <CardTitle>{t(service.title, locale)}</CardTitle>
       </CardHeader>
-      <CardContent className="flex flex-1 flex-col">
+      <CardContent className="flex flex-1 flex-col px-8 pb-8 pt-0">
         <p className="flex-1 text-sm leading-relaxed text-muted">
           {t(service.description, locale)}
         </p>
@@ -85,6 +87,9 @@ function ServiceCard({ service, locale }: { service: Service; locale: Locale }) 
           <p className="mt-4 rounded-lg border border-dashed border-sand/20 bg-bg-subtle/50 px-3 py-2 text-xs text-muted">
             {t(service.placeholderNote, locale)}
           </p>
+        )}
+        {service.availabilityNote && (
+          <p className="mt-3 text-xs text-sand">{t(service.availabilityNote, locale)}</p>
         )}
         {service.icon === "nfc" && <NfcCardAnimation />}
         {service.caseStudyLink && (
@@ -105,11 +110,11 @@ export function Services() {
 
   return (
     <>
-      <div className="section-divider" />
-      <section id="services" className="py-24">
+      <section id="services" className="py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <FadeIn className="mb-12 text-center">
-            <h2 className="font-display text-3xl font-bold sm:text-4xl">
+            <h2 className="font-display text-[40px] font-bold">
+              <span className="me-2 text-amber">{t(sections.servicesMark, locale)}</span>
               {t(sections.services, locale)}
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted">
@@ -118,7 +123,7 @@ export function Services() {
           </FadeIn>
 
           <motion.div
-            className="grid gap-8 md:grid-cols-3"
+            className="grid grid-cols-1 gap-8 md:grid-cols-2"
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"

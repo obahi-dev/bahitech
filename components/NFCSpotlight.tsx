@@ -14,8 +14,7 @@ export function NFCSpotlight() {
 
   return (
     <>
-      <div className="section-divider" />
-      <section id="nfc" className="py-24">
+      <section id="nfc" className="py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <div className="card-surface grid gap-12 overflow-hidden border-amber/25 p-8 shadow-amber-glow-lg lg:grid-cols-2 lg:p-12">

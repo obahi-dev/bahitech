@@ -5,7 +5,6 @@ import { Playfair_Display, IBM_Plex_Sans_Arabic } from "next/font/google";
 import { routing } from "@/lib/i18n/routing";
 import { company, t } from "@/data/content";
 import { Navbar } from "@/components/Navbar";
-import "@/styles/globals.css";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
