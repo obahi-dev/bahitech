@@ -27,23 +27,29 @@ export function Footer() {
   const copyright = tFooter("copyright", { year });
 
   return (
-    <footer className="border-t border-sand/10 py-12">
-      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-        <div>
-          <a href="#hero" className="group inline-flex items-center gap-3">
+    <footer className="border-t border-sand/10 py-16 md:py-24">
+      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8 rtl:sm:flex-row-reverse">
+        <div className="rtl:text-right">
+          <a
+            href="#hero"
+            className="logo-ltr group inline-flex items-center gap-3"
+            dir="ltr"
+          >
             <LogoMark className="h-8 w-8 shrink-0 transition-transform duration-300 group-hover:scale-105" />
             <div>
               <p className="font-display text-lg font-semibold leading-tight text-text-primary">
                 Bahi<span className="text-sand">Tech</span>
               </p>
-              <p className="text-[10px] uppercase tracking-[0.28em] text-muted">Solutions</p>
+              <p className="text-[10px] uppercase tracking-[0.28em] text-muted rtl:hidden">
+                Solutions
+              </p>
             </div>
           </a>
           <p className="mt-4 text-sm text-muted">{copyright}</p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-6">
-          <ul className="flex flex-wrap gap-6">
+        <div className="flex flex-wrap items-center gap-6 rtl:justify-end">
+          <ul className="flex flex-wrap gap-6 rtl:justify-end">
             {navKeys.map((key) => (
               <li key={key}>
                 <a
@@ -56,7 +62,7 @@ export function Footer() {
             ))}
           </ul>
 
-          <div className="flex gap-3">
+          <div className="flex gap-3" dir="ltr">
             {company.socials.map((social) => {
               const Icon = socialIcons[social.id] ?? Instagram;
               return (

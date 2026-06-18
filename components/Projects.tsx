@@ -29,7 +29,7 @@ function ProjectCard({
   return (
     <Card
       className={cn(
-        "overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-sand/25 hover:shadow-amber-glow",
+        "overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-sand/25 hover:shadow-amber-glow rtl:text-right",
         isExpanded && "border-sand/30 shadow-amber-glow"
       )}
     >
@@ -41,8 +41,8 @@ function ProjectCard({
         className="rounded-none rounded-t-xl"
         aspectClass="min-h-[240px]"
       />
-      <CardHeader>
-        <div className="mb-2 flex flex-wrap gap-2">
+      <CardHeader className="p-6 md:p-8">
+        <div className="mb-2 flex flex-wrap gap-2 rtl:justify-end">
           {tArray(project.tags, locale).map((tag) => (
             <Badge key={tag} variant="sand-dimmed">
               {tag}
@@ -51,7 +51,7 @@ function ProjectCard({
         </div>
         <CardTitle className="text-lg">{t(project.title, locale)}</CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-4 p-6 pt-0 md:p-8 md:pt-0">
         <p className={cn("text-sm text-muted", !isExpanded && "line-clamp-2")}>
           {t(project.description, locale)}
         </p>
@@ -72,7 +72,7 @@ function ProjectCard({
                     {detailItems.map((item) => (
                       <li
                         key={item}
-                        className="flex gap-2.5 text-sm leading-relaxed text-muted"
+                        className="flex gap-2.5 text-sm leading-relaxed text-muted rtl:flex-row-reverse rtl:justify-end"
                       >
                         <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber" />
                         <span>{item}</span>
@@ -124,9 +124,9 @@ export function Projects() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="section-padding">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <FadeIn className="mb-12 text-center">
+        <FadeIn className="section-title-gap text-center">
           <h2 className="font-display text-3xl font-bold sm:text-4xl">
             {t(sections.projects, locale)}
           </h2>
@@ -136,7 +136,7 @@ export function Projects() {
         </FadeIn>
 
         <motion.div
-          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"

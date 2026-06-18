@@ -53,13 +53,14 @@ export function Navbar() {
       }`}
     >
       <nav
-        className="mx-auto flex h-[68px] max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8"
+        className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8"
         aria-label={tA11y("mainNav")}
       >
         <a
           href="#hero"
-          className="flex h-10 w-10 shrink-0 items-center justify-center md:h-auto md:w-[52px]"
+          className="logo-ltr flex h-10 w-10 shrink-0 items-center justify-center md:h-auto md:w-[52px]"
           aria-label="BahiTech Solutions"
+          dir="ltr"
         >
           <motion.div
             initial={false}
@@ -74,7 +75,7 @@ export function Navbar() {
           </motion.div>
         </a>
 
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-6 md:flex rtl:me-auto">
           {navKeys.map(({ key, href }) => (
             <li key={key}>
               <a
@@ -120,13 +121,13 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <div className="fixed inset-0 top-[68px] z-40 bg-primary backdrop-blur-lg md:hidden">
+        <div className="fixed inset-0 top-16 z-40 bg-primary backdrop-blur-lg md:hidden">
           <ul className="flex flex-col gap-2 px-6 py-8">
             {navKeys.map(({ key, href }) => (
               <li key={key}>
                 <a
                   href={href}
-                  className="block rounded-lg px-4 py-4 font-display text-2xl text-text-primary hover:text-amber"
+                  className="block rounded-lg px-4 py-4 text-2xl font-bold text-text-primary hover:text-amber"
                   onClick={() => setOpen(false)}
                 >
                   {tr(key)}

@@ -66,6 +66,10 @@ export interface NfcProduct {
   title: LocalizedString;
   description: LocalizedString;
   ctaLabel: LocalizedString;
+  standImage: string;
+  stickerImage: string;
+  standLabel: LocalizedString;
+  stickerLabel: LocalizedString;
 }
 
 export interface SectionTitles {
@@ -324,12 +328,16 @@ export const nfcProduct: NfcProduct = {
   },
   description: {
     en: "Custom-branded NFC tags for your business. One tap opens your Google Review page — no app, no friction. Watch your review count grow passively while you focus on service.",
-    ar: "بطاقات NFC مخصصة بعلامتك. نقرة واحدة تفتح صفحة تقييم Google — بدون تطبيق وبدون تعقيد. زِد تقييماتك بينما تركز على خدمة عملائك.",
+    ar: "بطاقات NFC مخصصة بعلامتك التجارية. العميل يلمس هاتفه — تفتح صفحة مراجعات Google فوراً. لا تطبيق مطلوب. مراجعات أكثر، بلا تعقيد.",
   },
   ctaLabel: {
     en: "Order Custom Tags",
-    ar: "اطلب بطاقات مخصصة",
+    ar: "اطلب بطاقاتك",
   },
+  standImage: "/images/nfc-stand.jpg",
+  stickerImage: "/images/nfc-sticker.jpg",
+  standLabel: { en: "NFC Stand", ar: "حامل NFC" },
+  stickerLabel: { en: "NFC Sticker", ar: "ملصق NFC" },
 };
 
 export const sections: SectionTitles = {

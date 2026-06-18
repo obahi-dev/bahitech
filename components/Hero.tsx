@@ -23,7 +23,7 @@ export function Hero() {
   const tHero = useTranslations("hero");
 
   return (
-    <section id="hero" className="grain-overlay relative min-h-screen overflow-hidden pb-[60px] pt-[68px]">
+    <section id="hero" className="grain-overlay relative min-h-screen overflow-hidden pb-[60px] pt-16">
       <div className="pointer-events-none absolute inset-0">
         <svg className="absolute inset-0 h-full w-full" viewBox="0 0 1440 620" preserveAspectRatio="none">
           {backgroundLines.map((line, index) => (
@@ -60,22 +60,23 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-amber/[0.03] via-transparent to-primary/80" />
       </div>
 
-      <div className="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 -rotate-90">
+      <div className="pointer-events-none absolute left-0 top-1/2 hidden -translate-y-1/2 -rotate-90 ltr:block">
         <p className="text-[10px] tracking-[0.3em] text-sand/30">{t(company.edgeLabel, locale)}</p>
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-128px)] w-full max-w-6xl flex-col px-4 pt-10 sm:px-6 sm:pt-14 lg:px-8 lg:pt-16">
+      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-128px)] w-full max-w-6xl flex-col px-4 pt-10 sm:px-6 sm:pt-14 lg:px-8 lg:pt-16 rtl:text-right">
         <motion.div
           initial={{ opacity: 0, y: -24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: "easeOut" }}
-          className="mb-10 sm:mb-12"
+          className="logo-ltr mb-10 sm:mb-12 rtl:me-auto"
+          dir="ltr"
         >
           <Logo size="lg" />
         </motion.div>
 
         <motion.h1
-          className="font-display text-[36px] font-bold leading-[1.05] text-text-primary md:text-[48px] lg:text-[72px]"
+          className="font-display text-[36px] font-bold leading-[1.05] text-text-primary md:text-[48px] lg:text-[72px] rtl:lg:text-[56px]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
@@ -90,15 +91,15 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
         >
-          <p className="mt-6 max-w-xl text-lg text-muted">
+          <p className="mt-6 max-w-xl text-lg text-muted rtl:ms-auto rtl:leading-[1.9]">
             {t(company.description, locale)}
           </p>
-          <div className="mt-3 h-[2px] w-[60px] bg-amber/70" />
-          <div className="mt-8 h-px w-full max-w-xl bg-amber/20" />
+          <div className="mt-3 h-[2px] w-[60px] bg-amber/70 rtl:ms-auto" />
+          <div className="mt-8 h-px w-full max-w-xl bg-amber/20 rtl:ms-auto" />
         </motion.div>
 
         <motion.div
-          className="mt-8 flex flex-col gap-4 sm:flex-row"
+          className="mt-8 flex flex-col gap-4 sm:flex-row rtl:sm:flex-row-reverse rtl:sm:justify-end"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
@@ -120,13 +121,13 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.1, ease: "easeOut" }}
         >
-          <div className="flex flex-wrap items-start gap-x-10 gap-y-8 border-t border-sand/20 pt-10 sm:gap-x-14">
+          <div className="flex flex-wrap items-start gap-x-10 gap-y-8 border-t border-sand/20 pt-10 sm:gap-x-14 rtl:flex-row-reverse rtl:justify-end">
             {stats.map((stat, i) => (
-              <div key={stat.label.en} className="flex items-start gap-10 sm:gap-14">
+              <div key={stat.label.en} className="flex items-start gap-10 sm:gap-14 rtl:flex-row-reverse">
                 {i > 0 && (
                   <span className="hidden h-12 w-px shrink-0 bg-sand/20 sm:block" aria-hidden />
                 )}
-                <div className="flex min-w-[7rem] flex-col gap-2.5">
+                <div className="flex min-w-[7rem] flex-col gap-2.5 rtl:text-right">
                   <p className="font-display text-5xl font-bold leading-none tabular-nums text-amber">
                     {stat.value}
                   </p>

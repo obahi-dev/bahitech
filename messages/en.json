@@ -29,6 +29,9 @@
     "send": "Send Message",
     "whatsapp": "WhatsApp",
     "emailLabel": "Email",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "you@email.com",
+    "messagePlaceholder": "How can we help?",
     "formNote": "Opens your email client — no backend required.",
     "formSubject": "New inquiry from BahiTech Solutions website"
   },

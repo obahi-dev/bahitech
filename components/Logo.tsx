@@ -20,7 +20,7 @@ export default function Logo({ size = "md" }: LogoProps) {
       height={height}
       priority
       unoptimized
-      className="h-auto w-auto"
+      className="logo-ltr h-auto w-auto"
     />
   );
 }
